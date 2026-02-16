@@ -1,23 +1,159 @@
 * {
     background-color: white;
     font-family: monospace; 
+    cursor: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSIxMiI+PGNpcmNsZSBjeD0iNiIgY3k9IjYiIHI9IjUiIGZpbGw9ImJsYWNrIi8+PC9zdmc+') 6 6, auto;
+
 }
 
-.h1 {
+h1 {
     display: flex;
-    font-size: 1rem;
+    font-size: .85rem;
     font-weight: 100;
+    top: 1rem;
+    left: 3.5rem;
+    margin-bottom: 2rem;
+    position: fixed;
+    z-index: 3;
+    background-color: white;
 }
 
 .navbar {
     display: flex;
-    flex-direction: column;
+    position: fixed;
+    flex-direction: row;
     font-size: .85rem;
-    margin-left: 1.5rem;
+    top: 4rem; // Position from top of viewport
+    left: 2rem; // Position from left of viewport
     line-height: 1.5rem;
+    z-index: 2;
+    background-color: transparent;
 
     a {
         text-decoration: none;
-        color: inherit;  
+        color: inherit;
+        background-color: transparent;
+    }
+
+    .navbar_first {
+        display: flex;
+        flex-direction: column;
+        font-size: .85rem;
+        margin-left: 1.5rem;
+        line-height: 1.5rem;
+        background-color: transparent;
+    }
+
+    .navbar_second {
+        display: flex;
+        flex-direction: column;
+        font-size: .85rem;
+        margin-left: 8rem;
+        line-height: 1.5rem;
+        background-color: transparent;
+    }
+
+    .navbar_third {
+        display: flex;
+        flex-direction: column;
+        font-size: .85rem;
+        margin-left: 8rem;
+        line-height: 1.5rem;
+        background-color: transparent;
     }
 }
+
+
+.image-content {
+    display: flex;
+    flex-direction: column;
+    top:0;
+    left: 0;
+    max-width: 65rem;
+    position: absolute;
+    z-index: 1;
+    gap: 1rem;
+    filter: brightness(1.2);
+
+    img {
+        width: 100%;
+        height: auto;
+    }
+
+    img[src="/images/odegif.webp"] {
+        filter: brightness(.9); 
+        transform: scale(1.4);
+        margin-top: 10rem;
+    }
+
+    img[src="/images/chess1.webp"] {
+        filter: brightness(.9) sepia(0.02);
+        
+    }
+
+    img[src="/images/wino_cover.webp"] {
+        filter: brightness(.9); 
+        
+    }
+
+    img[src="/images/wino_open.webp"] {
+        filter: brightness(.85); 
+        
+    }
+
+    img[src="/images/chess4.webp"] {
+        filter: brightness(.9); 
+        
+    }
+
+    img[src="/images/chess5.webp"] {
+        filter: brightness(1) sepia(0.1) saturate(1.1); 
+        
+    }
+
+
+
+
+}
+
+.cursor-follow-image {
+    position: fixed;
+    pointer-events: none;
+    display: none;
+    z-index: 9999;
+    width: 200px; // Adjust size as needed
+    height: auto;
+    transform: translate(-20%, -15%);
+    background-color: transparent;
+}
+
+#ode-cursor-image {
+    width: 120px; // Smaller than default 200px
+    transform: translate(10%, 20%); // More to the right (10%) and down (20%)
+}
+
+.ode-text,
+.pnp-text,
+.winogrand-text,
+.bed-text,
+.interview-text,
+.chess-text {
+    font-size: .7rem;
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: 10rem;
+    max-width: 22rem;
+    line-height: 1.3rem;
+    margin-top: 20rem;
+    background-color: transparent;
+    position: relative;
+    z-index: 2;
+}
+
+.title {
+    font-size: .7rem;
+    text-decoration: underline;
+    background-color: transparent;
+}
+
+// ---------------------individual image styles---------------------

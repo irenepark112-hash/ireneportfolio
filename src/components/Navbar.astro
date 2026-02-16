@@ -1,0 +1,76 @@
+---
+// No props needed
+---
+
+<h1>irene park</h1>
+
+<div class="navbar">
+	<div class="navbar_first">
+		<a href="/ode" class="ode-link">ode to the book</a>
+		<a href="/winogrand" class="winogrand-link">lessons with winogrand</a>
+        <a href="/p&p" class="p&p-link">p&p</a>
+		<a href="/interview" class="interview-link">an interview</a>
+		<a href="/bed" class="bed-link">bed</a>
+		<a href="/chess" class="lettered-entities-link">lettered entities</a>
+	</div>
+	<div class="navbar_second">
+		<a href="/type-foundry">type foundry</a>
+		<a href="/holepunch">holepunch</a>
+		<a href="/alternate-internet-archive">alternate internet archive</a>
+		<a href="/researchrepo">research repository</a>
+		<a href="/weekly-worm">weekly worm</a>
+	</div>
+	<div class="navbar_third">
+		<a href="/about">about</a>
+		<a href="/contact">contact</a>
+	</div>
+</div>
+
+<img id="ode-cursor-image" src="/images/ode_cover.webp" alt="" class="cursor-follow-image" />
+<img id="winogrand-cursor-image" src="/images/wino_cursor.webp" alt="" class="cursor-follow-image" />
+<img id="interview-cursor-image" src="/images/interview_cursor.webp" alt="" class="cursor-follow-image" />
+<img id="bed-cursor-image" src="/images/bed_cursor.webp" alt="" class="cursor-follow-image" />
+<img id="pnp-cursor-image" src="/images/pnp_cursor.webp" alt="" class="cursor-follow-image" />
+<img id="lettered-entities-cursor-image" src="/images/chess_cursor.webp" alt="" class="cursor-follow-image" />
+
+
+
+
+
+
+
+<script>
+	// Map of link classes to their cursor image IDs
+	const cursorLinks = {
+		'ode-link': 'ode-cursor-image',
+		'winogrand-link': 'winogrand-cursor-image',
+		'interview-link': 'interview-cursor-image',
+		'bed-link': 'bed-cursor-image',
+		'p&p-link': 'pnp-cursor-image',
+		'lettered-entities-link': 'lettered-entities-cursor-image'
+	};
+
+	// Set up cursor following for all links
+	Object.entries(cursorLinks).forEach(([linkClass, imageId]) => {
+		// Escape special characters in class name for querySelector
+		const escapedClass = linkClass.replace(/&/g, '\\&');
+		const link = document.querySelector(`.${escapedClass}`);
+		const image = document.getElementById(imageId);
+		
+		if (link && image) {
+			link.addEventListener('mouseenter', () => {
+				image.style.display = 'block';
+			});
+			
+			link.addEventListener('mouseleave', () => {
+				image.style.display = 'none';
+			});
+			
+			link.addEventListener('mousemove', (e) => {
+				const mouseEvent = e as MouseEvent;
+				image.style.left = mouseEvent.clientX + 'px';
+				image.style.top = mouseEvent.clientY + 'px';
+			});
+		}
+	});
+</script>
