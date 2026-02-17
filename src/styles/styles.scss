@@ -120,10 +120,15 @@ h1 {
     pointer-events: none;
     display: none;
     z-index: 9999;
-    width: 200px; // Adjust size as needed
+    // width: 200px; // Adjust size as needed
+    width: auto;
     height: auto;
     transform: translate(-20%, -15%);
     background-color: transparent;
+
+    &.active {
+        display: block;
+    }
 }
 
 #ode-cursor-image {
