@@ -27,6 +27,7 @@ h1 {
     line-height: 1.5rem;
     z-index: 2;
     background-color: transparent;
+    margin-right: 3rem;
 
     a {
         text-decoration: none;
@@ -142,12 +143,12 @@ h1 {
 .bed-text,
 .interview-text,
 .chess-text {
-    font-size: .7rem;
+    font-size: .85rem;
     display: flex;
     flex-direction: column;
-    margin-left: auto;
-    margin-right: 22rem;
-    max-width: 22rem;
+    margin-left: 66rem;
+    margin-right: 3rem;
+    max-width: 33rem;
     line-height: 1.3rem;
     margin-top: 20rem;
     background-color: transparent;
@@ -156,7 +157,7 @@ h1 {
 }
 
 .title {
-    font-size: .7rem;
+    font-size: .85rem;
     text-decoration: underline;
     background-color: transparent;
 }
