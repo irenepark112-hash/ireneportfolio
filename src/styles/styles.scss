@@ -121,9 +121,7 @@ h1 {
     pointer-events: none;
     display: none;
     z-index: 9999;
-    // width: 200px; // Adjust size as needed
-    width: auto;
-    height: auto;
+    width: 15rem;
     transform: translate(-20%, -15%);
     background-color: transparent;
 
@@ -135,6 +133,22 @@ h1 {
 #ode-cursor-image {
     width: 120px; // Smaller than default 200px
     transform: translate(10%, 20%); // More to the right (10%) and down (20%)
+}
+
+#winogrand-cursor-image {// Smaller than default 200px
+    filter: brightness(1.2);
+}
+
+#interview-cursor-image {// Smaller than default 200px
+    filter: brightness(1.2);
+}
+
+#bed-cursor-image {// Smaller than default 200px
+    filter: brightness(1.2);
+}
+
+#lettered-entities-cursor-image {// Smaller than default 200px
+    filter: brightness(1.2);
 }
 
 .ode-text,
