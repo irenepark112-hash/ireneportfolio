@@ -5,6 +5,43 @@
 
 }
 
+.thumbnail {
+    display: flex;
+    align-items: flex-end;
+    top: 20rem;
+    position: absolute;
+    gap: .4rem;
+    
+    .thumbnail-foundry {
+        width: 20rem;
+        object-fit: contain;
+    }
+
+    .thumbnail-wino {
+        width: 20rem;
+        object-fit: contain;
+    }
+
+    .thumbnail-ode {
+        width: 30rem;
+        object-fit: contain;
+    }
+
+    .thumbnail-researchrepo {
+        width: 20rem;
+        object-fit: contain;
+    }
+
+    // img[src="/images/researchrepo.gif"] {
+    //     clip-path: inset(0 40% 10% 0);  /* top right bottom left */
+    // }
+
+    // img[src="/images/ode_landing.png"] {
+    //     clip-path: inset(0 40% 10% 0);  /* top right bottom left */
+    // }
+}   
+
+
 h1 {
     display: flex;
     font-size: .85rem;
