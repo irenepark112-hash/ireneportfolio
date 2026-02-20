@@ -8,7 +8,7 @@
 .thumbnail {
     display: flex;
     align-items: flex-end;
-    top: 20rem;
+    bottom: 5rem;
     position: absolute;
     gap: .4rem;
     
@@ -25,10 +25,10 @@
         object-fit: contain;
     }
 
-    .thumbnail-ode {
-        width: 20rem;
-        object-fit: contain;
-    }
+    // .thumbnail-ode {
+    //     width: 20rem;
+    //     object-fit: contain;
+    // }
 
     .thumbnail-researchrepo {
         width: 30rem;
@@ -37,6 +37,11 @@
     }
 
     .thumbnail-foid {
+        width: 20rem;
+        object-fit: contain;
+    }
+
+    .thumbnail-bed {
         width: 20rem;
         object-fit: contain;
     }
