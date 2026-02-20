@@ -13,24 +13,32 @@
     gap: .4rem;
     
     .thumbnail-foundry {
-        width: 20rem;
+        width: 30rem;
         object-fit: contain;
+        clip-path: inset(0 15rem 0 .5rem);
+        margin-right: -15rem;
+        margin-left: -.5rem;
     }
 
     .thumbnail-wino {
-        width: 20rem;
+        width: 25rem;
         object-fit: contain;
     }
 
     .thumbnail-ode {
-        width: 30rem;
+        width: 20rem;
         object-fit: contain;
     }
 
     .thumbnail-researchrepo {
-        width: 20rem;
+        width: 30rem;
         object-fit: contain;
         clip-path: inset(0 .5rem 0 0);
+    }
+
+    .thumbnail-foid {
+        width: 20rem;
+        object-fit: contain;
     }
 
     
@@ -211,6 +219,15 @@ h1 {
         filter: brightness(.95) sepia(0.1);
 
     }
+
+    img[src="/images/altinter.png"] {
+        border: .25px solid black;
+        
+    }
+
+    img[src="/images/foid.webp"] {
+        width: 5rem;
+    }
 }
 
 .cursor-follow-image {
@@ -251,6 +268,12 @@ h1 {
 #typefoundry-cursor-image {// Smaller than default 200px
     width: 100px;
     transform: translate(10%, 20%);
+}
+
+#aia-cursor-image {// Smaller than default 200px
+    width: 10rem;
+    transform: translate(-25%, -15%);
+    clip-path: inset(25% 25% 25% 25%);  
 }
 
 

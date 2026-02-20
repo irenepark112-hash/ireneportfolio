@@ -16,7 +16,7 @@
 	<div class="navbar_second">
 		<a href="/typefoundry" class="typefoundry-link">type foundry</a>
 		<a href="/holepunch">holepunch</a>
-		<a href="/alternate-internet-archive">alternate internet archive</a>
+		<a href="/alternate-internet-archive" class="aia-link">alternate internet archive</a>
 		<a href="/researchrepo">research repository</a>
 		<a href="/aging">aging</a>
 	</div>
@@ -33,6 +33,7 @@
 <img id="pnp-cursor-image" src="/images/pnp_cursor.webp" alt="" class="cursor-follow-image" />
 <img id="lettered-entities-cursor-image" src="/images/chess_cursor.webp" alt="" class="cursor-follow-image" />
 <img id="typefoundry-cursor-image" src="/images/foundry_cursor.gif" alt="" class="cursor-follow-image" />
+<img id="aia-cursor-image" src="/images/foid.webp" alt="" class="cursor-follow-image" />
 
 
 
@@ -55,30 +56,64 @@
 		'bed-link': 'bed-cursor-image',
 		'p&p-link': 'pnp-cursor-image',
 		'lettered-entities-link': 'lettered-entities-cursor-image',
-		'typefoundry-link': 'typefoundry-cursor-image'
+		'typefoundry-link': 'typefoundry-cursor-image',
+		'aia-link': 'aia-cursor-image'
 	};
+
+	// Smooth cursor following with lerp
+	const positions: Map<string, { targetX: number; targetY: number; currentX: number; currentY: number; active: boolean }> = new Map();
 
 	// Set up cursor following for all links
 	Object.entries(cursorLinks).forEach(([linkClass, imageId]) => {
-		// Escape special characters in class name for querySelector
 		const escapedClass = linkClass.replace(/&/g, '\\&');
 		const link = document.querySelector(`.${escapedClass}`);
 		const image = document.getElementById(imageId);
 		
 		if (link && image) {
-			link.addEventListener('mouseenter', () => {
+			positions.set(imageId, { targetX: 0, targetY: 0, currentX: 0, currentY: 0, active: false });
+
+			link.addEventListener('mouseenter', (e) => {
+				const mouseEvent = e as MouseEvent;
+				const pos = positions.get(imageId)!;
+				pos.currentX = mouseEvent.clientX;
+				pos.currentY = mouseEvent.clientY;
+				pos.targetX = mouseEvent.clientX;
+				pos.targetY = mouseEvent.clientY;
+				pos.active = true;
+				image.style.left = pos.currentX + 'px';
+				image.style.top = pos.currentY + 'px';
 				image.classList.add('active');
 			});
 			
 			link.addEventListener('mouseleave', () => {
+				positions.get(imageId)!.active = false;
 				image.classList.remove('active');
 			});
 			
 			link.addEventListener('mousemove', (e) => {
 				const mouseEvent = e as MouseEvent;
-				image.style.left = mouseEvent.clientX + 'px';
-				image.style.top = mouseEvent.clientY + 'px';
+				const pos = positions.get(imageId)!;
+				pos.targetX = mouseEvent.clientX;
+				pos.targetY = mouseEvent.clientY;
 			});
 		}
 	});
+
+	// Animation loop — smoothly interpolate towards target
+	function animate() {
+		positions.forEach((pos, imageId) => {
+			if (pos.active) {
+				const lerp = 0.35;
+				pos.currentX += (pos.targetX - pos.currentX) * lerp;
+				pos.currentY += (pos.targetY - pos.currentY) * lerp;
+				const image = document.getElementById(imageId);
+				if (image) {
+					image.style.left = pos.currentX + 'px';
+					image.style.top = pos.currentY + 'px';
+				}
+			}
+		});
+		requestAnimationFrame(animate);
+	}
+	requestAnimationFrame(animate);
 </script>
