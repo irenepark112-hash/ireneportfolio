@@ -5,12 +5,25 @@
 
 }
 
+.thumbnail-row-1 {
+    position: absolute;
+    bottom: 5rem;
+    display: flex;
+    flex-direction: column;
+    max-width: 100vw;
+    background-color: transparent;
+}
+
 .thumbnail {
     display: flex;
-    align-items: flex-end;
-    bottom: 5rem;
-    position: absolute;
-    gap: .4rem;
+    align-items: flex-start;
+    gap: .2rem;
+    max-width: 100vw;
+
+    img {
+        min-width: 0;
+        flex-shrink: 1;
+    }
     
     .thumbnail-foundry {
         width: 30rem;
@@ -25,10 +38,10 @@
         object-fit: contain;
     }
 
-    // .thumbnail-ode {
-    //     width: 20rem;
-    //     object-fit: contain;
-    // }
+    .thumbnail-ode {
+        width: 20rem;
+        object-fit: contain;
+    }
 
     .thumbnail-researchrepo {
         width: 30rem;
@@ -44,9 +57,26 @@
     .thumbnail-bed {
         width: 20rem;
         object-fit: contain;
+        filter: brightness(1.1);
+
     }
 
-    
+    .thumbnail-chess {
+        width: 20rem;
+        object-fit: contain;
+        filter: brightness(1.1);
+
+    }
+
+    .thumbnail-interv {
+        width: 20rem;
+        object-fit: contain;
+    }
+
+    .thumbnail-pnp {
+        width: 20rem;
+        object-fit: contain;
+    }
 
     // img[src="/images/researchrepo.gif"] {
     //     clip-path: inset(0 40% 10% 0);  /* top right bottom left */
@@ -55,8 +85,7 @@
     // img[src="/images/ode_landing.png"] {
     //     clip-path: inset(0 40% 10% 0);  /* top right bottom left */
     // }
-}   
-
+}
 
 h1 {
     display: flex;
