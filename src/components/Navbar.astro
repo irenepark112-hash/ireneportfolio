@@ -118,17 +118,17 @@
 	}
 	requestAnimationFrame(animate);
 
-	// Blur background images when hovering over navbar text
+	// Blur background when hovering over navbar text
 	const navbarLinks = document.querySelectorAll('.navbar a, h1 a');
-	const sliderTrack = document.querySelector('.slider-track');
+	const imageSlider = document.querySelector('.image-slider');
 
-	if (sliderTrack) {
+	if (imageSlider) {
 		navbarLinks.forEach(link => {
 			link.addEventListener('mouseenter', () => {
-				sliderTrack.classList.add('blurred');
+				imageSlider.classList.add('blurred');
 			});
 			link.addEventListener('mouseleave', () => {
-				sliderTrack.classList.remove('blurred');
+				imageSlider.classList.remove('blurred');
 			});
 		});
 	}

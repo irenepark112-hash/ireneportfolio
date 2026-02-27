@@ -10,15 +10,15 @@ import '../styles/styles.scss';
 	<div class="image-slider-wrapper">
 	<div class="image-slider">
 		<div class="slider-track">
-			<div class="slide"><img src="/images/wino_foundry.webp" alt="winogrand" /></div>
-			<div class="slide"><img src="/images/bed4.webp" alt="bed" /></div>
-			<!-- <div class="slide"><img src="/images/foundry_landing.gif" alt="type foundry" /></div> -->
-			<div class="slide"><img src="/images/researchrepo.gif" alt="research repository" /></div>
-			<!-- <div class="slide"><img src="/images/foid.webp" alt="alternate internet archive" /></div> -->
-			<div class="slide"><img src="/images/chess5.webp" alt="lettered entities" /></div>
-			<div class="slide"><img src="/images/IMG_5482.webp" alt="interview" /></div>
-			<div class="slide"><img src="/images/ode_landing.png" alt="ode to the book" /></div>
-			<div class="slide"><img src="/images/p&p_cover.png" alt="p&p" /></div>
+			<div class="slide"><img src="/images/wino_foundry.webp" alt="winogrand" loading="eager" /></div>
+			<div class="slide"><img src="/images/bed4.webp" alt="bed" loading="eager" /></div>
+			<!-- <div class="slide"><img src="/images/foundry_landing.gif" alt="type foundry" loading="lazy" /></div> -->
+			<!-- <div class="slide"><img src="/images/researchrepo.gif" alt="research repository" loading="lazy" /></div> -->
+			<!-- <div class="slide"><img src="/images/foid.webp" alt="alternate internet archive" loading="lazy" /></div> -->
+			<div class="slide"><img src="/images/chess5.webp" alt="lettered entities" loading="lazy" /></div>
+			<div class="slide"><img src="/images/IMG_5482.webp" alt="interview" loading="lazy" /></div>
+			<div class="slide"><img src="/images/ode_landing.png" alt="ode to the book" loading="lazy" /></div>
+			<div class="slide"><img src="/images/p&p_cover.png" alt="p&p" loading="lazy" /></div>
 		</div>
 		<div class="slider-next-area"></div>
 	</div>
@@ -33,13 +33,22 @@ import '../styles/styles.scss';
 
 		function updateSlider() {
 			track.style.transform = `translateX(-${currentIndex * 80}vw)`;
+			track.setAttribute('data-index', String(currentIndex));
+		}
+
+		// Preload the next off-screen image so it's ready when clicked
+		function preloadNext() {
+			const nextIndex = currentIndex + 2;
+			if (nextIndex < totalSlides) {
+				const img = slides[nextIndex].querySelector('img') as HTMLImageElement;
+				if (img) img.loading = 'eager';
+			}
 		}
 
 		nextArea.addEventListener('click', () => {
-			if (currentIndex < totalSlides - 1) {
-				currentIndex++;
-				updateSlider();
-			}
+			currentIndex = (currentIndex + 1) % totalSlides;
+			updateSlider();
+			preloadNext();
 		});
 	</script>
 </Layout>
