@@ -20,35 +20,53 @@ import '../styles/styles.scss';
 			<div class="slide"><img src="/images/ode_landing.png" alt="ode to the book" loading="lazy" /></div>
 			<div class="slide"><img src="/images/p&p_cover.png" alt="p&p" loading="lazy" /></div>
 		</div>
-		<div class="slider-next-area"></div>
+		<div class="slider-next-area"><span>&rarr;</span></div>
 	</div>
 	</div>
 
 	<script>
 		const track = document.querySelector('.slider-track') as HTMLElement;
 		const nextArea = document.querySelector('.slider-next-area') as HTMLElement;
-		const slides = document.querySelectorAll('.slide');
+		const originalSlides = Array.from(document.querySelectorAll('.slide'));
+		const totalOriginal = originalSlides.length;
 		let currentIndex = 0;
-		const totalSlides = slides.length;
+		let isTransitioning = false;
 
-		function updateSlider() {
+		// Clone the first 2 slides and append to the end for seamless looping
+		for (let i = 0; i < 2; i++) {
+			const clone = originalSlides[i].cloneNode(true) as HTMLElement;
+			clone.classList.add('clone');
+			const img = clone.querySelector('img') as HTMLImageElement;
+			if (img) img.loading = 'lazy';
+			track.appendChild(clone);
+		}
+
+		function updateSlider(animate = true) {
+			if (!animate) track.style.transition = 'none';
 			track.style.transform = `translateX(-${currentIndex * 80}vw)`;
-			track.setAttribute('data-index', String(currentIndex));
+			track.setAttribute('data-index', String(currentIndex % totalOriginal));
+			if (!animate) track.offsetHeight; // force reflow
+			if (!animate) track.style.transition = '';
 		}
 
-		// Preload the next off-screen image so it's ready when clicked
-		function preloadNext() {
-			const nextIndex = currentIndex + 2;
-			if (nextIndex < totalSlides) {
-				const img = slides[nextIndex].querySelector('img') as HTMLImageElement;
-				if (img) img.loading = 'eager';
+		track.addEventListener('transitionend', () => {
+			isTransitioning = false;
+			if (currentIndex >= totalOriginal) {
+				currentIndex = currentIndex - totalOriginal;
+				updateSlider(false);
 			}
-		}
+		});
 
 		nextArea.addEventListener('click', () => {
-			currentIndex = (currentIndex + 1) % totalSlides;
+			if (isTransitioning) return;
+			isTransitioning = true;
+			currentIndex++;
 			updateSlider();
-			preloadNext();
+
+			// Preload upcoming image
+			const preloadIdx = (currentIndex + 2) % totalOriginal;
+			const img = originalSlides[preloadIdx].querySelector('img') as HTMLImageElement;
+			if (img) img.loading = 'eager';
 		});
 	</script>
 </Layout>

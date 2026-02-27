@@ -21,7 +21,12 @@
 	</div>
 	<div class="navbar_third">
 		<a href="/about">about</a>
-		<a href="/contact">contact</a>
+		<div class="contact-toggle">
+			<a href="#" class="contact-link">contact</a>
+			<div class="contact-dropdown">
+				<a href="https://www.linkedin.com/in/irene-park-a0a888342/" target="_blank" rel="noopener noreferrer">&rarr; linkedin</a>
+			</div>
+		</div>
 	</div>
 </div>
 
@@ -117,6 +122,17 @@
 		requestAnimationFrame(animate);
 	}
 	requestAnimationFrame(animate);
+
+	// Toggle contact dropdown
+	const contactLink = document.querySelector('.contact-link');
+	const contactToggle = document.querySelector('.contact-toggle');
+
+	if (contactLink && contactToggle) {
+		contactLink.addEventListener('click', (e) => {
+			e.preventDefault();
+			contactToggle.classList.toggle('active');
+		});
+	}
 
 	// Blur background when hovering over navbar text
 	const navbarLinks = document.querySelectorAll('.navbar a, h1 a');
