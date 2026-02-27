@@ -198,7 +198,8 @@ h1 {
     flex-direction: column;
     top:0;
     left: 0;
-    max-width: 65rem;
+    width: 60vw;
+    max-width: 60vw;
     position: absolute;
     z-index: 1;
     gap: .5rem;
@@ -380,7 +381,7 @@ h1 {
     font-size: .85rem;
     display: flex;
     flex-direction: column;
-    margin-left: 66rem;
+    margin-left: calc(60vw + 1rem);
     margin-right: 3rem;
     max-width: 33rem;
     line-height: 1.3rem;
