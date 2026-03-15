@@ -92,7 +92,7 @@ h1 {
     font-size: .85rem;
     font-weight: 100;
     top: 1rem;
-    left: 3.5rem;
+    left: 2.5rem;
     margin-bottom: 2rem;
     position: fixed;
     z-index: 3;
@@ -111,7 +111,7 @@ h1 {
     flex-direction: row;
     font-size: .85rem;
     top: 4rem; // Position from top of viewport
-    left: 2rem; // Position from left of viewport
+    left: 1rem; // Position from left of viewport
     line-height: 1.5rem;
     z-index: 2;
     background-color: transparent;
@@ -193,6 +193,36 @@ h1 {
     left: auto !important;
 }
 
+.image-content-center {
+    left: 0 !important;
+    right: auto;
+    top: 15rem !important;
+    width: calc(60vw - 5rem) !important;
+    max-width: calc(60vw - 5rem) !important;
+}
+
+.navbar-second-page {
+    background-color: transparent !important;
+}
+
+.image-content-row {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    position: absolute;
+    z-index: 1;
+    gap: .5rem;
+    background-color: transparent;
+
+    img, video {
+        height: 50vh;
+        width: auto;
+        object-fit: cover;
+        display: block;
+        background-color: transparent;
+    }
+}
+
 .image-content {
     display: flex;
     flex-direction: column;
@@ -246,8 +276,40 @@ h1 {
         
     }
 
-    img[src="/images/foundry.gif"] {
-        clip-path: inset(.5rem .5rem .5rem .5rem);
+    .redact-wrapper {
+        overflow: hidden;
+        border: .25px solid black;
+        background-color: transparent;
+
+        img {
+            display: block;
+            margin-top: -1.5rem;
+            width: 100% !important;
+        }
+    }
+
+    .foundry-wrapper {
+        overflow: hidden;
+        border: .25px solid black;
+        background-color: transparent;
+
+        img {
+            display: block;
+            margin: -.5rem;
+            width: calc(100% + 1rem) !important;
+        }
+    }
+
+    .redact-wrapper {
+        overflow: hidden;
+        border: .25px solid black;
+        background-color: transparent;
+
+        video {
+            display: block;
+            margin-top: calc(-1.5rem - 1px);
+            width: 100% !important;
+        }
     }
 
 
@@ -372,6 +434,57 @@ h1 {
     transform: translate(10%, 20%);
 }
 
+.aia-text,
+.type-text {
+    font-size: .85rem;
+    display: flex;
+    flex-direction: column;
+    left: calc(60vw - 5rem + 1rem);
+    bottom: 0;
+    max-width: 33rem;
+    line-height: 1.3rem;
+    background-color: transparent;
+    position: fixed;
+    z-index: 2;
+    text-align: left;
+
+    * {
+        background-color: transparent;
+    }
+
+    a {
+        text-decoration: none;
+        color: blue;
+    }
+
+    a:hover {
+        animation: flash-yellow 0.75s infinite;
+    }
+}
+
+.research-text {
+    font-size: .85rem;
+    display: flex;
+    flex-direction: column;
+    left: calc(60vw - 5rem + 1rem);
+    bottom: 0;
+    max-width: 33rem;
+    line-height: 1.3rem;
+    background-color: transparent;
+    position: fixed;
+    z-index: 2;
+    text-align: left;
+
+    * {
+        background-color: transparent;
+    }
+}
+
+@keyframes flash-yellow {
+    0%, 49% { color: yellow; }
+    50%, 100% { color: blue; }
+}
+
 .ode-text,
 .pnp-text,
 .winogrand-text,
@@ -381,13 +494,13 @@ h1 {
     font-size: .85rem;
     display: flex;
     flex-direction: column;
-    margin-left: calc(60vw + 1rem);
+    left: calc(60vw + 1rem);
+    bottom: 1rem;
     margin-right: 3rem;
     max-width: 33rem;
     line-height: 1.3rem;
-    margin-top: 20rem;
     background-color: transparent;
-    position: relative;
+    position: fixed;
     z-index: 2;
 }
 

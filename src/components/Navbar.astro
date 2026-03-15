@@ -134,6 +134,31 @@
 		});
 	}
 
+	// Align text div bottom with first image bottom
+	const textDiv = document.querySelector('.ode-text, .pnp-text, .winogrand-text, .bed-text, .interview-text, .chess-text, .aia-text') as HTMLElement;
+	const imageContainer = document.querySelector('.image-content');
+
+	if (textDiv && imageContainer) {
+		const firstImage = imageContainer.querySelector('img') as HTMLImageElement;
+
+		function alignText() {
+			if (!firstImage || !textDiv) return;
+			const imageRect = firstImage.getBoundingClientRect();
+			const imageBottom = imageRect.bottom + window.scrollY;
+			const textHeight = textDiv.offsetHeight;
+			textDiv.style.marginTop = (imageBottom - textHeight) + 'px';
+			textDiv.classList.add('aligned');
+		}
+
+		if (firstImage.complete) {
+			alignText();
+		} else {
+			firstImage.addEventListener('load', alignText);
+		}
+
+		window.addEventListener('resize', alignText);
+	}
+
 	// Blur background when hovering over navbar text
 	const navbarLinks = document.querySelectorAll('.navbar a, h1 a');
 	const imageSlider = document.querySelector('.image-slider');
