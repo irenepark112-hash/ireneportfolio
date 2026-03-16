@@ -20,14 +20,21 @@
 		<a href="/researchrepo">research repository</a>
 	</div>
 	<div class="navbar_third">
-		<a href="/about">about</a>
+		<div class="about-toggle">
+			<a href="#" class="about-link">about</a>
+			<div class="about-dropdown">
+				<p>&rarr; irene park is a designer based in providence, ri. she is currently a student at the rhode island school of design pursuing a bfa in graphic design.</p>
+				<p>&rarr; website by irene park</p>
+				<p>&rarr; typeset in aileron, regular by sori sagano</p>
+
+			</div>
+		</div>
 		<div class="contact-toggle">
 			<a href="#" class="contact-link">contact</a>
 			<div class="contact-dropdown">
 				<a href="https://www.linkedin.com/in/irene-park-a0a888342/" target="_blank" rel="noopener noreferrer">&rarr; linkedin</a>
 			</div>
 		</div>
-	</div>
 </div>
 
 <img id="ode-cursor-image" src="/images/ode_cover.webp" alt="" class="cursor-follow-image" />
@@ -122,6 +129,17 @@
 		requestAnimationFrame(animate);
 	}
 	requestAnimationFrame(animate);
+
+	// Toggle about dropdown
+	const aboutLink = document.querySelector('.about-link');
+	const aboutToggle = document.querySelector('.about-toggle');
+
+	if (aboutLink && aboutToggle) {
+		aboutLink.addEventListener('click', (e) => {
+			e.preventDefault();
+			aboutToggle.classList.toggle('active');
+		});
+	}
 
 	// Toggle contact dropdown
 	const contactLink = document.querySelector('.contact-link');

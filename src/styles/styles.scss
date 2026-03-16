@@ -13,6 +13,7 @@
 
 }
 
+
 .thumbnail {
     display: flex;
     align-items: flex-start;
@@ -153,6 +154,35 @@ h1 {
             text-decoration: underline;
         }
 
+        .about-toggle {
+            background-color: transparent;
+
+            .about-link {
+                background-color: transparent;
+            }
+
+            .about-dropdown {
+                display: none;
+                margin-left: 1.5rem;
+                width: 20rem;
+                background-color: transparent;
+
+                p {
+                    background-color: transparent;
+                    margin: 0;
+                }
+            }
+
+            &.active .about-link {
+                text-decoration: underline;
+            }
+
+            &.active .about-dropdown {
+                display: flex;
+                flex-direction: column;
+            }
+        }
+
         .contact-toggle {
             background-color: transparent;
 
@@ -193,12 +223,8 @@ h1 {
     left: auto !important;
 }
 
-.image-content-center {
-    left: 0 !important;
-    right: auto;
+.image-content-offset {
     top: 15rem !important;
-    width: calc(60vw - 5rem) !important;
-    max-width: calc(60vw - 5rem) !important;
 
     &:has(> :only-child) {
         top: auto !important;
@@ -239,6 +265,11 @@ h1 {
     z-index: 1;
     gap: .5rem;
     filter: brightness(1.2);
+
+    &:has(> :only-child) {
+        top: auto;
+        bottom: 0;
+    }
 
     img {
         width: 100%;
@@ -449,9 +480,10 @@ h1 {
     font-size: .85rem;
     display: flex;
     flex-direction: column;
-    left: calc(60vw - 5rem + 1rem);
-    bottom: 0;
-    max-width: 25rem;
+    left: calc(60vw + 1rem);
+    bottom: 1rem;
+    margin-right: 3rem;
+    max-width: 30rem;
     line-height: 1.3rem;
     background-color: transparent;
     position: fixed;
@@ -490,7 +522,7 @@ h1 {
     left: calc(60vw + 1rem);
     bottom: 1rem;
     margin-right: 3rem;
-    max-width: 33rem;
+    max-width: 30rem;
     line-height: 1.3rem;
     background-color: transparent;
     position: fixed;
