@@ -1,6 +1,14 @@
+@font-face {
+    font-family: 'aileron';
+    src: url('/aileron/Aileron-Regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 * {
     background-color: white;
-    font-family: monospace; 
+    font-family: 'aileron', sans-serif; 
+    font-size: .9rem;
     cursor: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSIxMiI+PGNpcmNsZSBjeD0iNiIgY3k9IjYiIHI9IjUiIGZpbGw9ImJsYWNrIi8+PC9zdmc+') 6 6, auto;
 
 }
@@ -26,7 +34,7 @@
     }
     
     .thumbnail-foundry {
-        width: 30rem;
+        width: 33rem;
         object-fit: contain;
         clip-path: inset(0 15rem 0 .5rem);
         margin-right: -15rem;
@@ -34,7 +42,7 @@
     }
 
     .thumbnail-wino {
-        width: 25rem;
+        width: 17rem;
         object-fit: contain;
     }
 
@@ -55,7 +63,7 @@
     }
 
     .thumbnail-bed {
-        width: 20rem;
+        width: 17rem;
         object-fit: contain;
         filter: brightness(1.1);
 
@@ -508,83 +516,6 @@ h1 {
     font-size: .85rem;
     text-decoration: underline;
     background-color: transparent;
-}
-
-// ---------------------image slider---------------------
-
-.image-slider-wrapper {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
-    z-index: 0;
-}
-
-.image-slider {
-    position: absolute;
-    top: -0.5rem;
-    left: -0.5rem;
-    width: calc(100% + 1rem);
-    height: calc(100% + 1rem);
-    overflow: hidden;
-    filter: blur(0px);
-    transition: filter 0.3s ease;
-    contain: strict;
-
-    &.blurred {
-        filter: blur(10px);
-
-        @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-            filter: blur(5px);
-        }
-    }
-}
-
-.slider-track {
-    display: flex;
-    height: 100%;
-    transition: transform 0.6s ease;
-    will-change: transform;
-}
-
-.slide {
-    min-width: 80vw;
-    height: 100%;
-    overflow: hidden;
-    background-color: transparent;
-
-    img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        display: block;
-        background-color: transparent;
-    }
-}
-
-.slider-next-area {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 20%;
-    height: 100%;
-    cursor: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSIxMiI+PGNpcmNsZSBjeD0iNiIgY3k9IjYiIHI9IjUiIGZpbGw9ImJsYWNrIi8+PC9zdmc+') 6 6, auto;
-    z-index: 2;
-    background-color: transparent;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    span {
-        font-size: 2rem;
-        font-family: monospace;
-        font-weight: 10;
-        color: white;
-        background-color: transparent;
-        mix-blend-mode: difference;
-    }
 }
 
 // ---------------------individual image styles---------------------
