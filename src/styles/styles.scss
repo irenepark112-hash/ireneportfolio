@@ -17,10 +17,10 @@
 .thumbnail {
     display: flex;
     align-items: flex-start;
-    gap: 0.15vw;
+    // gap: 0.15vw;
     width: 100vw;
     position: absolute;
-    bottom: 5rem;
+    bottom: 0rem;
     background-color: transparent;
 
     a {
@@ -30,6 +30,7 @@
     }
 
     img {
+        display: block;
         min-width: 0;
         flex-shrink: 1;
     }
@@ -86,18 +87,21 @@
     }
 }
 
-h1 {
-    display: flex;
-    font-size: .85rem;
-    font-weight: 100;
-    top: 1rem;
-    left: 2.5rem;
-    margin-bottom: 2rem;
-    position: fixed;
-    z-index: 3;
+.site-title {
     background-color: white;
     padding-left: .2rem;
     padding-right: .2rem;
+    top: 1rem;
+    display: flex;
+    font-size: .85rem;
+    font-weight: normal;
+    line-height: 1.3rem;
+    top: 1rem;
+    left: 2.5rem;
+    margin: 0;
+    position: fixed;
+    z-index: 3;
+
 
     a {
         text-decoration: none;
@@ -506,7 +510,7 @@ h1 {
 
 
 @keyframes flash-yellow {
-    0%, 49% { color: yellow; }
+    0%, 49% { color: magenta; }
     50%, 100% { color: blue; }
 }
 
