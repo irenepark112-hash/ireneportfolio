@@ -67,7 +67,7 @@
     }
 
     img[src="/images/redactgif.gif"] {
-        margin-top: -2.9rem;
+        margin-top: -2.5rem;
     }
 
     img[src="/images/researchrepo.gif"] {
@@ -570,6 +570,72 @@
     text-decoration: underline;
     background-color: transparent;
     margin-bottom: 1rem;
+}
+
+// ---------------------mobile styles---------------------
+@media (max-width: 768px) {
+    .navbar {
+        position: relative;
+        width: 100%;
+        top: 0;
+        left: 0;
+        padding: 1rem;
+        line-height: 1.5rem;
+
+        .navbar_first,
+        .navbar_second {
+            margin-bottom: 1rem;
+        }
+    }
+
+    .navbar_logo {
+        position: fixed;
+        top: 1rem;
+        right: 1rem;
+        margin-bottom: 0;
+        z-index: 3;
+    }
+
+    .thumbnail {
+        columns: 1;
+        margin-left: 1rem;
+        margin-right: 1rem;
+        margin-top: 0;
+    }
+
+    .image-content {
+        position: relative;
+        left: 1rem;
+        top: 0;
+        width: calc(100vw - 2rem);
+        max-width: calc(100vw - 2rem);
+    }
+
+    .research-text,
+    .aia-text,
+    .type-text,
+    .ode-text,
+    .pnp-text,
+    .winogrand-text,
+    .bed-text,
+    .interview-text,
+    .chess-text {
+        position: relative;
+        left: 1rem;
+        top: 0;
+        max-width: calc(100vw - 2rem);
+        margin-right: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .image-content-row {
+        flex-direction: column;
+
+        img, video {
+            height: auto;
+            width: 100%;
+        }
+    }
 }
 
 // ---------------------individual image styles---------------------
