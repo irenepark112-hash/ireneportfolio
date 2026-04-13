@@ -2,24 +2,9 @@
 // No props needed
 ---
 
-<p class="site-title"><a href="/">irene park</a></p>
-
 <div class="navbar">
-	<div class="navbar_first">
-		<a href="/winogrand" class="winogrand-link">lessons with winogrand</a>
-		<a href="/ode" class="ode-link">ode to the book</a>
-        <a href="/p&p" class="p&p-link">p&p</a>
-		<a href="/interview" class="interview-link">an interview</a>
-		<a href="/bed" class="bed-link">bed</a>
-		<a href="/chess" class="lettered-entities-link">lettered entities</a>
-	</div>
-	<div class="navbar_second">
-		<a href="/typefoundry" class="typefoundry-link">type foundry</a>
-		<!-- <a href="/holepunch" class="holepunch-link">holepunch</a> -->
-		<a href="/alternate-internet-archive" class="aia-link">alternate internet archive</a>
-		<a href="/researchrepo">research repository</a>
-	</div>
-	<div class="navbar_third">
+	<div class="navbar_info">
+		<a href="/" class="site-title">irene park</a>
 		<div class="about-toggle">
 			<a href="#" class="about-link">about</a>
 			<div class="about-dropdown">
@@ -35,9 +20,24 @@
 				<a href="https://www.linkedin.com/in/irene-park-a0a888342/" target="_blank" rel="noopener noreferrer">&rarr; linkedin</a>
 			</div>
 		</div>
+	</div>
+	<div class="navbar_first">
+		<a href="/typefoundry" class="typefoundry-link">type foundry</a>
+		<!-- <a href="/holepunch" class="holepunch-link">holepunch</a> -->
+		<a href="/alternate-internet-archive" class="aia-link">alternate internet archive</a>
+		<a href="/researchrepo">research repository</a>
+	</div>
+	<div class="navbar_second">
+		<a href="/winogrand" class="winogrand-link">lessons with winogrand</a>
+		<a href="/ode" class="ode-link">ode to the book</a>
+		<a href="/p&p" class="p&p-link">p&p</a>
+		<a href="/interview" class="interview-link">an interview</a>
+		<a href="/bed" class="bed-link">bed</a>
+		<a href="/chess" class="lettered-entities-link">lettered entities</a>
+	</div>
 </div>
 
-<img id="ode-cursor-image" src="/images/ode_cover.webp" alt="" class="cursor-follow-image" />
+<!-- <img id="ode-cursor-image" src="/images/ode_cover.webp" alt="" class="cursor-follow-image" />
 <img id="winogrand-cursor-image" src="/images/wino_cursor.webp" alt="" class="cursor-follow-image" />
 <img id="interview-cursor-image" src="/images/interview_cursor.webp" alt="" class="cursor-follow-image" />
 <img id="bed-cursor-image" src="/images/bed_cursor.webp" alt="" class="cursor-follow-image" />
@@ -45,7 +45,7 @@
 <img id="lettered-entities-cursor-image" src="/images/chess_cursor.webp" alt="" class="cursor-follow-image" />
 <img id="typefoundry-cursor-image" src="/images/foundry_cursor.gif" alt="" class="cursor-follow-image" />
 <img id="aia-cursor-image" src="/images/foid.webp" alt="" class="cursor-follow-image" />
-<!-- <div id="holepunch-cursor-dot" class="cursor-follow-image"></div> -->
+<div id="holepunch-cursor-dot" class="cursor-follow-image"></div> -->
 
 
 
@@ -54,13 +54,13 @@
 
 
 <script>
+	/* Cursor-follow images disabled
 	// Preload all cursor-follow images so they're ready before first hover
 	document.querySelectorAll<HTMLImageElement>('.cursor-follow-image').forEach(img => {
 		const preload = new Image();
 		preload.src = img.src;
 	});
 
-	// Map of link classes to their cursor image IDs
 	const cursorLinks = {
 		'ode-link': 'ode-cursor-image',
 		'winogrand-link': 'winogrand-cursor-image',
@@ -70,13 +70,10 @@
 		'lettered-entities-link': 'lettered-entities-cursor-image',
 		'typefoundry-link': 'typefoundry-cursor-image',
 		'aia-link': 'aia-cursor-image',
-		// 'holepunch-link': 'holepunch-cursor-dot'
 	};
 
-	// Smooth cursor following with lerp
 	const positions: Map<string, { targetX: number; targetY: number; currentX: number; currentY: number; active: boolean }> = new Map();
 
-	// Set up cursor following for all links
 	Object.entries(cursorLinks).forEach(([linkClass, imageId]) => {
 		const escapedClass = linkClass.replace(/&/g, '\\&');
 		const link = document.querySelector(`.${escapedClass}`);
@@ -112,7 +109,6 @@
 		}
 	});
 
-	// Animation loop — smoothly interpolate towards target
 	function animate() {
 		positions.forEach((pos, imageId) => {
 			if (pos.active) {
@@ -129,6 +125,7 @@
 		requestAnimationFrame(animate);
 	}
 	requestAnimationFrame(animate);
+	*/
 
 	// Toggle about dropdown
 	const aboutLink = document.querySelector('.about-link');
