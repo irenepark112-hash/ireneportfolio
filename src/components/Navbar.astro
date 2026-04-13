@@ -3,15 +3,16 @@
 ---
 
 <div class="navbar">
+	<div class="navbar_logo">
+		<a href="/">l</a>
+	</div>
 	<div class="navbar_info">
-		<a href="/" class="site-title">irene park</a>
 		<div class="about-toggle">
 			<a href="#" class="about-link">about</a>
 			<div class="about-dropdown">
-				<p>&rarr; irene park is a designer based in providence, ri. she is currently a student at the rhode island school of design pursuing a bfa in graphic design.</p>
-				<p>&rarr; website by irene park</p>
-				<p>&rarr; typeset in aileron, regular by sori sagano</p>
-
+				<p><span class="arrow">&rarr;</span><span>irene park is a designer based in providence, ri. she is currently a student at the rhode island school of design pursuing a bfa in graphic design.</span></p>
+				<p><span class="arrow">&rarr;</span><span>website by irene park</span></p>
+				<p><span class="arrow">&rarr;</span><span>typeset in aileron, regular by sori sagano</span></p>
 			</div>
 		</div>
 		<div class="contact-toggle">
@@ -149,33 +150,8 @@
 		});
 	}
 
-	// Align text div bottom with first image bottom
-	const textDiv = document.querySelector('.ode-text, .pnp-text, .winogrand-text, .bed-text, .interview-text, .chess-text, .aia-text') as HTMLElement;
-	const imageContainer = document.querySelector('.image-content');
-
-	if (textDiv && imageContainer) {
-		const firstImage = imageContainer.querySelector('img') as HTMLImageElement;
-
-		function alignText() {
-			if (!firstImage || !textDiv) return;
-			const imageRect = firstImage.getBoundingClientRect();
-			const imageBottom = imageRect.bottom + window.scrollY;
-			const textHeight = textDiv.offsetHeight;
-			textDiv.style.marginTop = (imageBottom - textHeight) + 'px';
-			textDiv.classList.add('aligned');
-		}
-
-		if (firstImage.complete) {
-			alignText();
-		} else {
-			firstImage.addEventListener('load', alignText);
-		}
-
-		window.addEventListener('resize', alignText);
-	}
-
 	// Blur background when hovering over navbar text
-	const navbarLinks = document.querySelectorAll('.navbar a, .site-title a');
+	const navbarLinks = document.querySelectorAll('.navbar a');
 	const imageSlider = document.querySelector('.image-slider');
 
 	if (imageSlider) {

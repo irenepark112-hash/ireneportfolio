@@ -1,5 +1,5 @@
 :root {
-    --navbar-width: 18rem;
+    --navbar-width: 20rem;
 }
 
 @font-face {
@@ -12,6 +12,13 @@
 @font-face {
     font-family: 'babie';
     src: url('/font/Babie.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'advent';
+    src: url('/font/ADVENT.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
@@ -41,7 +48,7 @@
     column-fill: auto;
     height: max-content;
     margin-top: 1rem;
-    margin-left: calc(var(--navbar-width) + 1rem);
+    margin-left: calc(var(--navbar-width) + 4rem);
     margin-right: 1rem;
     background-color: transparent;
 
@@ -94,12 +101,24 @@
     }
 }
 
-.site-title {
-    font-family: 'babie', sans-serif;
-    font-size: 1.5rem;
-    color: black;
-    text-decoration: none;
+.navbar_logo {
     background-color: transparent;
+    line-height: 1;
+    margin-bottom: 5rem;
+
+    a {
+        font-family: 'advent', sans-serif;
+        font-size: 3rem;
+        line-height: 1;
+        color: black;
+        text-decoration: none;
+        background-color: transparent;
+        font-variation-settings: 'POSI' 0;
+
+        &:hover {
+            animation: variable-type 1s ease-in-out infinite alternate;
+        }
+    }
 }
 
 .navbar {
@@ -107,12 +126,13 @@
     position: fixed;
     flex-direction: column;
     font-size: .85rem;
-    top: 3rem;
+    top: 1rem;
     left: 1rem;
     width: var(--navbar-width);
     line-height: 1.5rem;
     z-index: 2;
     background-color: transparent;
+    overflow: visible;
 
     a {
         text-decoration: none;
@@ -131,6 +151,7 @@
         margin-left: 0;
         line-height: 1.5rem;
         background-color: transparent;
+        margin-bottom: 2rem;
     }
 
     .navbar_second {
@@ -149,6 +170,7 @@
         margin-left: 0;
         line-height: 1.5rem;
         background-color: transparent;
+        margin-bottom: 2rem;
 
         a:hover,
         a:active {
@@ -165,12 +187,19 @@
             .about-dropdown {
                 display: none;
                 margin-left: 1.5rem;
-                width: 20rem;
+                max-width: calc(19rem - 1rem - 1.5rem - 0.5rem);
                 background-color: transparent;
 
                 p {
+                    display: grid;
+                    grid-template-columns: auto 1fr;
+                    gap: 0.3rem;
                     background-color: transparent;
                     margin: 0;
+
+                    span {
+                        background-color: transparent;
+                    }
                 }
             }
 
@@ -194,6 +223,7 @@
             .contact-dropdown {
                 display: none;
                 margin-left: 1.5rem;
+                max-width: calc(var(--navbar-width) - 1.5rem);
                 background-color: transparent;
 
                 a {
@@ -225,12 +255,7 @@
 }
 
 .image-content-offset {
-    top: 15rem !important;
-
-    &:has(> :only-child) {
-        top: auto !important;
-        bottom: 0;
-    }
+    top: 0 !important;
 }
 
 .navbar-second-page {
@@ -259,17 +284,16 @@
     display: flex;
     flex-direction: column;
     top:0;
-    left: 12rem;
-    width: calc(60vw - 12rem);
-    max-width: calc(60vw - 12rem);
+    left: calc(var(--navbar-width) + 4rem);
+    width: calc(75vw - var(--navbar-width) - 4rem);
+    max-width: calc(75vw - var(--navbar-width) - 4rem);
     position: absolute;
     z-index: 1;
     gap: .5rem;
     filter: brightness(1.2);
 
     &:has(> :only-child) {
-        top: auto;
-        bottom: 0;
+        top: 0;
     }
 
     img {
@@ -478,11 +502,11 @@
 .research-text,
 .aia-text,
 .type-text {
-    font-size: .85rem;
+    font-size: .8rem;
     display: flex;
     flex-direction: column;
-    left: calc(60vw + 1rem);
-    bottom: 1rem;
+    left: calc(75vw + 1rem);
+    top: 1rem;
     margin-right: 3rem;
     max-width: 30rem;
     line-height: 1.3rem;
@@ -511,17 +535,28 @@
     50%, 100% { color: blue; }
 }
 
+@keyframes flash-blue {
+    0%, 49% { color: blue; }
+    50%, 100% { color: black; }
+}
+
+@keyframes variable-type {
+    0% { font-variation-settings: 'POSI' 0; }
+    50% { font-variation-settings: 'POSI' 100; }
+    100% { font-variation-settings: 'POSI' 0; }
+}
+
 .ode-text,
 .pnp-text,
 .winogrand-text,
 .bed-text,
 .interview-text,
 .chess-text {
-    font-size: .85rem;
+    font-size: .8rem;
     display: flex;
     flex-direction: column;
-    left: calc(60vw + 1rem);
-    bottom: 1rem;
+    left: calc(75vw + 1rem);
+    top: 1rem;
     margin-right: 3rem;
     max-width: 30rem;
     line-height: 1.3rem;
@@ -531,9 +566,10 @@
 }
 
 .title {
-    font-size: .85rem;
+    font-size: .8rem;
     text-decoration: underline;
     background-color: transparent;
+    margin-bottom: 1rem;
 }
 
 // ---------------------individual image styles---------------------
