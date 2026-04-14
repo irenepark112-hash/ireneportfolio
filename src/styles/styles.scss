@@ -519,6 +519,10 @@
         background-color: transparent;
     }
 
+    p {
+        margin-top: 0.5rem;
+    }
+
     a {
         text-decoration: none;
         color: blue;
@@ -591,9 +595,13 @@
     .navbar_logo {
         position: fixed;
         top: 1rem;
-        right: 1rem;
+        right: 1.5rem;
         margin-bottom: 0;
         z-index: 3;
+
+        a {
+            font-size: 2.2rem;
+        }
     }
 
     .thumbnail {
