@@ -26,15 +26,34 @@ import '../styles/styles.scss';
 		<a href="/p&p"><img src="/images/p&p_cover.png" alt="People and Places thumbnail"/><span class="thumb-title">P&amp;P</span></a>
 		<a href="/winogrand"><img src="/images/wino_cover.webp" alt="Lessons with Winogrand thumbnail"/><span class="thumb-title">LESSONS FROM WINOGRAND</span></a>
 		<a href="/bed"><img src="/images/bed1.webp" alt="Bed thumbnail"/><span class="thumb-title">BED</span></a>
+		<a href="/obit">
+			<video
+				autoplay
+				muted
+				loop
+				playsinline
+				aria-label="Obituary thumbnail"
+			>
+				<source src="/images/obitss.mov" type="video/quicktime" />
+			</video>
+			<span class="thumb-title">OBITUARY</span>
+		</a>
 	</div>
 	<script is:inline>
 		document.addEventListener('DOMContentLoaded', () => {
+			const videos = document.querySelectorAll('.thumbnail video');
 			if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-				document.querySelectorAll('.thumbnail video').forEach((v) => {
+				videos.forEach((v) => {
 					v.pause();
 					v.removeAttribute('autoplay');
 				});
+				return;
 			}
+			// Browsers often only honor autoplay on the first video; start the rest explicitly.
+			videos.forEach((v) => {
+				v.muted = true;
+				v.play?.().catch(() => {});
+			});
 		});
 	</script>
 	</Layout>
