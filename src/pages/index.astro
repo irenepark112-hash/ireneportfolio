@@ -7,15 +7,34 @@ import '../styles/styles.scss';
 <Layout>
 	<Navbar />
 	<div class="thumbnail">
-		<a href="/typefoundry"><img src="/images/redactgif.gif"/></a>
-		<a href="/alternate-internet-archive"><img src="/images/alt_clip1.gif"/></a>
-		<a href="/ode"><img src="/images/ode.gif"/></a>
-		<a href="/chess"><img src="/images/chess5.webp"/></a>
-		<a href="/p&p"><img src="/images/pnp.webp"/></a>
-		<a href="/winogrand"><img src="/images/wino_cover.webp"/></a>
-		<a href="/researchrepo"><img src="/images/researchrepo.gif"/></a>
-		<a href="/bed"><img src="/images/bed1.webp"/></a>
-		
-		<a href="/interview"><img src="/images/interv.webp"/></a>
+		<a href="/typefoundry">
+			<video
+				autoplay
+				muted
+				loop
+				playsinline
+				poster="/images/typess1.gif"
+				aria-label="Type Foundry thumbnail"
+			>
+				<source src="/images/typess1.mov" type="video/quicktime" />
+			</video>
+			<span class="thumb-title">TYPE FOUNDRY</span>
+		</a>
+		<a href="/alternate-internet-archive"><img src="/images/ss2.png" alt="Alternate Internet Archive thumbnail"/><span class="thumb-title">ALTERNATE INTERNET ARCHIVE</span></a>
+		<!-- <a href="/ode"><img src="/images/ode_landing.png" alt="Ode to the Book thumbnail"/><span class="thumb-title">ODE TO THE BOOK</span></a> -->
+		<a href="/chess"><img src="/images/chess3.webp" alt="Lettered Entities thumbnail"/><span class="thumb-title">LETTERED ENTITIES</span></a>
+		<a href="/p&p"><img src="/images/p&p_cover.png" alt="People and Places thumbnail"/><span class="thumb-title">P&amp;P</span></a>
+		<a href="/winogrand"><img src="/images/wino_cover.webp" alt="Lessons with Winogrand thumbnail"/><span class="thumb-title">LESSONS FROM WINOGRAND</span></a>
+		<a href="/bed"><img src="/images/bed1.webp" alt="Bed thumbnail"/><span class="thumb-title">BED</span></a>
 	</div>
+	<script is:inline>
+		document.addEventListener('DOMContentLoaded', () => {
+			if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+				document.querySelectorAll('.thumbnail video').forEach((v) => {
+					v.pause();
+					v.removeAttribute('autoplay');
+				});
+			}
+		});
+	</script>
 	</Layout>

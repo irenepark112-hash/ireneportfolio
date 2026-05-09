@@ -3,38 +3,14 @@
 ---
 
 <div class="navbar">
-	<div class="navbar_logo">
-		<a href="/">l</a>
-	</div>
+	<div class="navbar_brand">irene park</div>
 	<div class="navbar_info">
 		<div class="about-toggle">
-			<a href="#" class="about-link">about</a>
-			<div class="about-dropdown">
-				<p><span class="arrow">&rarr;</span><span>irene park is a designer based in providence, ri. she is currently a student at the rhode island school of design pursuing a bfa in graphic design.</span></p>
-				<p><span class="arrow">&rarr;</span><span>website by irene park</span></p>
-				<p><span class="arrow">&rarr;</span><span>typeset in aileron, regular by sori sagano</span></p>
-			</div>
+			<a href="/about" class="about-link"><span>About</span></a>
 		</div>
 		<div class="contact-toggle">
-			<a href="#" class="contact-link">contact</a>
-			<div class="contact-dropdown">
-				<a href="https://www.linkedin.com/in/irene-park-a0a888342/" target="_blank" rel="noopener noreferrer">&rarr; linkedin</a>
-			</div>
+			<a href="mailto:irenepark112@gmail.com" class="contact-link"><span>Contact</span></a>
 		</div>
-	</div>
-	<div class="navbar_first">
-		<a href="/typefoundry" class="typefoundry-link">type foundry</a>
-		<!-- <a href="/holepunch" class="holepunch-link">holepunch</a> -->
-		<a href="/alternate-internet-archive" class="aia-link">alternate internet archive</a>
-		<a href="/researchrepo">research repository</a>
-	</div>
-	<div class="navbar_second">
-		<a href="/winogrand" class="winogrand-link">lessons with winogrand</a>
-		<a href="/ode" class="ode-link">ode to the book</a>
-		<a href="/p&p" class="p&p-link">p&p</a>
-		<a href="/interview" class="interview-link">an interview</a>
-		<a href="/bed" class="bed-link">bed</a>
-		<a href="/chess" class="lettered-entities-link">lettered entities</a>
 	</div>
 </div>
 
@@ -128,28 +104,6 @@
 	requestAnimationFrame(animate);
 	*/
 
-	// Toggle about dropdown
-	const aboutLink = document.querySelector('.about-link');
-	const aboutToggle = document.querySelector('.about-toggle');
-
-	if (aboutLink && aboutToggle) {
-		aboutLink.addEventListener('click', (e) => {
-			e.preventDefault();
-			aboutToggle.classList.toggle('active');
-		});
-	}
-
-	// Toggle contact dropdown
-	const contactLink = document.querySelector('.contact-link');
-	const contactToggle = document.querySelector('.contact-toggle');
-
-	if (contactLink && contactToggle) {
-		contactLink.addEventListener('click', (e) => {
-			e.preventDefault();
-			contactToggle.classList.toggle('active');
-		});
-	}
-
 	// Blur background when hovering over navbar text
 	const navbarLinks = document.querySelectorAll('.navbar a');
 	const imageSlider = document.querySelector('.image-slider');
@@ -164,4 +118,28 @@
 			});
 		});
 	}
+
+	// Make About/Contact button fills continue forward on mouseleave
+	const navButtons = document.querySelectorAll<HTMLAnchorElement>(
+		'.about-link, .contact-link, .nav-pill-link'
+	);
+
+	navButtons.forEach(button => {
+		button.addEventListener('mouseenter', () => {
+			button.classList.remove('is-sweeping-out');
+			button.classList.add('is-sweeping-in');
+		});
+
+		button.addEventListener('mouseleave', () => {
+			button.classList.remove('is-sweeping-in');
+			button.classList.add('is-sweeping-out');
+		});
+
+		button.addEventListener('animationend', (e) => {
+			const animationEvent = e as AnimationEvent;
+			if (animationEvent.animationName === 'button-fill-out') {
+				button.classList.remove('is-sweeping-out');
+			}
+		});
+	});
 </script>
